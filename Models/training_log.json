@@ -1,0 +1,37 @@
+{
+    "training_start": "2026-06-03T00:12:23.032573",
+    "training_end": "2026-06-03T00:12:23.032588",
+    "status": "COMPLETED",
+    "events": [
+        {
+            "timestamp": "2026-06-03T00:12:23.032593",
+            "event": "Data loaded",
+            "status": "SUCCESS"
+        },
+        {
+            "timestamp": "2026-06-03T00:12:23.032599",
+            "event": "Preprocessing complete",
+            "status": "SUCCESS"
+        },
+        {
+            "timestamp": "2026-06-03T00:12:23.032603",
+            "event": "Feature extraction complete",
+            "status": "SUCCESS"
+        },
+        {
+            "timestamp": "2026-06-03T00:12:23.032608",
+            "event": "Model training complete",
+            "status": "SUCCESS"
+        },
+        {
+            "timestamp": "2026-06-03T00:12:23.032613",
+            "event": "Model evaluation complete",
+            "status": "SUCCESS"
+        },
+        {
+            "timestamp": "2026-06-03T00:12:23.032617",
+            "event": "Files saved",
+            "status": "SUCCESS"
+        }
+    ]
+}

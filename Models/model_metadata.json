@@ -1,0 +1,133 @@
+{
+    "system": {
+        "timestamp": "2026-06-03T00:12:23.018890",
+        "python_version": "3.14.3",
+        "platform": "Windows",
+        "platform_release": "11",
+        "processor": "Intel64 Family 6 Model 69 Stepping 1, GenuineIntel",
+        "machine": "AMD64"
+    },
+    "model": {
+        "name": "Passive Aggressive Classifier",
+        "type": "PassiveAggressiveClassifier",
+        "algorithm": "Online Learning Algorithm",
+        "parameters": {
+            "C": 1.0,
+            "max_iter": 1000,
+            "random_state": 42,
+            "loss": "hinge",
+            "fit_intercept": true,
+            "shuffle": true,
+            "early_stopping": false,
+            "validation_fraction": 0.1,
+            "n_iter_no_change": 5
+        }
+    },
+    "performance": {
+        "accuracy": 0.9937639198218263,
+        "precision": 0.9932116104868914,
+        "recall": 0.9936768149882904,
+        "f1_score": 0.9934441582767501,
+        "accuracy_percentage": 99.37639198218264,
+        "precision_percentage": 99.32116104868915,
+        "recall_percentage": 99.36768149882904
+    },
+    "confusion_matrix": {
+        "true_negatives": 4681,
+        "false_positives": 29,
+        "false_negatives": 27,
+        "true_positives": 4243,
+        "total_predictions": 8980,
+        "false_positive_rate": 0.0061571125265392785,
+        "false_negative_rate": 0.006323185011709602,
+        "specificity": 0.9938428874734607,
+        "sensitivity": 0.9936768149882904
+    },
+    "cross_validation": {
+        "cv_folds": 5,
+        "cv_scores": [
+            0.99331849,
+            0.99025612,
+            0.99359688,
+            0.99095086,
+            0.99192538
+        ],
+        "cv_mean": 0.992,
+        "cv_std_dev": 0.0013,
+        "cv_min": 0.99025612,
+        "cv_max": 0.99359688,
+        "cv_range": 0.00334076
+    },
+    "dataset": {
+        "name": "ISOT Fake News Dataset",
+        "source": "https://www.kaggle.com/datasets/...",
+        "total_samples": 44898,
+        "training_samples": 35918,
+        "test_samples": 8980,
+        "real_news_total": 21417,
+        "fake_news_total": 23481,
+        "real_news_percentage": 47.7,
+        "fake_news_percentage": 52.3,
+        "train_test_split_ratio": "80-20",
+        "stratified": true
+    },
+    "preprocessing": {
+        "steps": [
+            "Lowercase conversion",
+            "Special character removal",
+            "Tokenization",
+            "Stop word removal",
+            "Lemmatization"
+        ],
+        "lowercase": true,
+        "remove_special_chars": true,
+        "tokenization": true,
+        "stop_word_removal": true,
+        "lemmatization": true,
+        "stop_words_removed": 179,
+        "duplicates_removed": 142,
+        "missing_values_handled": 7
+    },
+    "feature_extraction": {
+        "method": "TF-IDF Vectorization",
+        "max_features": 5000,
+        "ngram_range": "(1, 2 )",
+        "min_df": 2,
+        "max_df": 0.95,
+        "sublinear_tf": false,
+        "use_idf": true,
+        "smooth_idf": true,
+        "norm": "l2",
+        "total_features": 5000,
+        "sparsity": 0.9987
+    },
+    "training": {
+        "training_date": "2026-06-03T00:12:23.018937",
+        "training_algorithm": "Passive Aggressive Classifier",
+        "training_duration_seconds": "0.6s",
+        "convergence_achieved": true,
+        "iterations_run": 1000,
+        "learning_rate": "Optimal (auto)",
+        "batch_size": "Full batch",
+        "optimizer": "Passive Aggressive"
+    },
+    "status": {
+        "is_trained": true,
+        "is_production_ready": true,
+        "training_complete": true,
+        "evaluation_complete": true,
+        "last_updated": "2026-06-03T00:12:23.018941",
+        "model_version": "1.0.0",
+        "status_message": "Model successfully trained and evaluated"
+    },
+    "notes": {
+        "description": "Fake News Detection System using PAC and TF-IDF",
+        "purpose": "Classify news articles as real or fake",
+        "limitations": [
+            "English language only",
+            "Trained on ISOT dataset",
+            "May not generalize to other domains",
+            "Requires preprocessing for new data"
+        ]
+    }
+}

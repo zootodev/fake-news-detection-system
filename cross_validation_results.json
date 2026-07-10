@@ -1,0 +1,15 @@
+{
+    "individual_scores": [
+        0.99331849,
+        0.99025612,
+        0.99359688,
+        0.99095086,
+        0.99192538
+    ],
+    "mean": 0.992,
+    "std_dev": 0.0013,
+    "min": 0.99025612,
+    "max": 0.99359688,
+    "folds": 5,
+    "interpretation": "Excellent model stability and generalization"
+}
