@@ -6,6 +6,5 @@ nltk
 streamlit
 newspaper3k
 matplotlib
-seaborn
-ipykernel
 wordcloud
+langid

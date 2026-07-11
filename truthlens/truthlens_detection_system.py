@@ -14,6 +14,7 @@ from dataclasses import dataclass
 from typing import List, Optional, Tuple
 import numpy as np
 import langid
+from pathlib import Path
 
 
 # ── Data Models ──────────────────────────────────────────────────────────────
@@ -41,11 +42,12 @@ class Prediction:
 
 class ModelLoader:
     """Handles loading trained model and vectorizer"""
-    
-    def __init__(self, model_path: str = "fakeNewsDS/Models/trained_model.pkl",
-                 vectorizer_path: str = "fakeNewsDS/Models/tfidf_vectorizer.pkl",
-                 metadata_path: str = "fakeNewsDS/Models/model_metadata.json"):
-        """
+
+    def __init__(self,
+                model_path: Path,
+                vectorizer_path: Path,
+                metadata_path: Path):
+            """
         Initialize model loader
         
         Args:
@@ -53,26 +55,26 @@ class ModelLoader:
             vectorizer_path: Path to TF-IDF vectorizer file
             metadata_path: Path to model metadata JSON
         """
-        self.model_path = model_path
-        self.vectorizer_path = vectorizer_path
-        self.metadata_path = metadata_path
-        
-        self.model = None
-        self.vectorizer = None
-        self.metadata = None
-        
-        self._load_model()
+            self.model_path = model_path
+            self.vectorizer_path = vectorizer_path
+            self.metadata_path = metadata_path
+            
+            self.model = None
+            self.vectorizer = None
+            self.metadata = None
+            
+            self._load_model()
     
     def _load_model(self):
         """Load model, vectorizer, and metadata"""
         try:
             # Try loading with joblib first (more efficient)
-            if os.path.exists(self.model_path):
+            if self.model_path.exists():
                 try:
                     self.model = joblib.load(self.model_path)
                 except:
                     # Fall back to pickle if joblib fails
-                    with open(self.model_path, 'rb') as f:
+                    with self.model_path.open("rb") as f:
                         self.model = pickle.load(f)
                 print(f"✅ Model loaded: {self.model_path}")
             else:
@@ -108,40 +110,23 @@ class ModelLoader:
 
 
 # ── Global Model Instance ────────────────────────────────────────────────────
-
-# Try to load model with different path variations
 _model_loader = None
 
 def _initialize_model():
-    """Initialize model loader with fallback paths"""
+    """Initialize the model loader."""
+
     global _model_loader
-    
+
     if _model_loader is not None:
         return
-    
-    # Try different path variations
-    possible_paths = [
-        ("fakeNewsDS/Models/trained_model.pkl", "fakeNewsDS/Models/tfidf_vectorizer.pkl"),
-        ("FAKENEWSDS/Models/trained_model.pkl", "FAKENEWSDS/Models/tfidf_vectorizer.pkl"),
-        ("Models/trained_model.pkl", "Models/tfidf_vectorizer.pkl"),
-        ("trained_model.pkl", "tfidf_vectorizer.pkl"),
-        ("models/trained_model.pkl", "models/tfidf_vectorizer.pkl"),
-    ]
-    
-    for model_path, vec_path in possible_paths:
-        try:
-            if os.path.exists(model_path) and os.path.exists(vec_path):
-                _model_loader = ModelLoader(model_path, vec_path)
-                return
-        except:
-            continue
-    
-    # If no model found, raise error
-    raise RuntimeError(
-        "Could not find trained model and vectorizer. "
-        "Expected paths:\n"
-        "  - fakeNewsDS/Models/trained_model.pkl\n"
-        "  - fakeNewsDS/Models/tfidf_vectorizer.pkl"
+
+    base_dir = Path(__file__).resolve().parent.parent
+    models_dir = base_dir / "Models"
+
+    _model_loader = ModelLoader(
+        model_path=models_dir / "trained_model.pkl",
+        vectorizer_path=models_dir / "tfidf_vectorizer.pkl",
+        metadata_path=models_dir / "model_metadata.json",
     )
 
 
