@@ -2,7 +2,7 @@
 
 > A Machine Learning-powered web application for detecting fake news articles using Natural Language Processing (NLP) and a Passive Aggressive Classifier.
 
-![Python](https://img.shields.io/badge/Python-3.x-blue)
+![Python](https://img.shields.io/badge/Python-3.10-blue)
 ![Streamlit](https://img.shields.io/badge/Streamlit-Web%20App-red)
 ![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-ML-orange)
 ![License](https://img.shields.io/badge/License-MIT-green)
