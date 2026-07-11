@@ -19,6 +19,12 @@ The application features a clean Streamlit interface, confidence scoring, predic
 
 ---
 
+# 🚀 Live Demo
+
+[https://truthlensapp.streamlit.app/]
+
+---
+
 # 📸 Screenshots
 
 ## Home Page
